@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		62A8C7A625885C6D00F0D7A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A8C7A525885C6D00F0D7A2 /* AppDelegate.swift */; };
 		62A8C7A825885C6D00F0D7A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A8C7A725885C6D00F0D7A2 /* SceneDelegate.swift */; };
-		62A8C7AA25885C6D00F0D7A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A8C7A925885C6D00F0D7A2 /* ViewController.swift */; };
 		62A8C7AD25885C6D00F0D7A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62A8C7AB25885C6D00F0D7A2 /* Main.storyboard */; };
 		62A8C7AF25885C7000F0D7A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62A8C7AE25885C7000F0D7A2 /* Assets.xcassets */; };
 		62A8C7B225885C7000F0D7A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62A8C7B025885C7000F0D7A2 /* LaunchScreen.storyboard */; };
+		62A8C7BF258861C400F0D7A2 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A8C7BE258861C400F0D7A2 /* Character.swift */; };
+		62A8C7C42588627D00F0D7A2 /* CharacterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A8C7C32588627D00F0D7A2 /* CharacterController.swift */; };
+		62A8C7CA258864D300F0D7A2 /* CardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A8C7C9258864D300F0D7A2 /* CardCollectionViewController.swift */; };
+		62A8C7CF258868F800F0D7A2 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A8C7CE258868F800F0D7A2 /* CharacterCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		62A8C7A225885C6D00F0D7A2 /* CardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A8C7A525885C6D00F0D7A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62A8C7A725885C6D00F0D7A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		62A8C7A925885C6D00F0D7A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		62A8C7AC25885C6D00F0D7A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62A8C7AE25885C7000F0D7A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62A8C7B125885C7000F0D7A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62A8C7B325885C7000F0D7A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62A8C7BE258861C400F0D7A2 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		62A8C7C32588627D00F0D7A2 /* CharacterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterController.swift; sourceTree = "<group>"; };
+		62A8C7C9258864D300F0D7A2 /* CardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewController.swift; sourceTree = "<group>"; };
+		62A8C7CE258868F800F0D7A2 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +62,9 @@
 		62A8C7A425885C6D00F0D7A2 /* CardGame */ = {
 			isa = PBXGroup;
 			children = (
-				62A8C7A925885C6D00F0D7A2 /* ViewController.swift */,
-				62A8C7AB25885C6D00F0D7A2 /* Main.storyboard */,
+				62A8C7C1258861C900F0D7A2 /* Model */,
+				62A8C7C62588628400F0D7A2 /* ModelController */,
+				62A8C7BC258861B800F0D7A2 /* Views */,
 				62A8C7BA25885C7E00F0D7A2 /* Resources */,
 			);
 			path = CardGame;
@@ -73,6 +80,32 @@
 				62A8C7B325885C7000F0D7A2 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		62A8C7BC258861B800F0D7A2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62A8C7CE258868F800F0D7A2 /* CharacterCollectionViewCell.swift */,
+				62A8C7C9258864D300F0D7A2 /* CardCollectionViewController.swift */,
+				62A8C7AB25885C6D00F0D7A2 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		62A8C7C1258861C900F0D7A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				62A8C7BE258861C400F0D7A2 /* Character.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62A8C7C62588628400F0D7A2 /* ModelController */ = {
+			isa = PBXGroup;
+			children = (
+				62A8C7C32588627D00F0D7A2 /* CharacterController.swift */,
+			);
+			path = ModelController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +178,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62A8C7AA25885C6D00F0D7A2 /* ViewController.swift in Sources */,
+				62A8C7CF258868F800F0D7A2 /* CharacterCollectionViewCell.swift in Sources */,
 				62A8C7A625885C6D00F0D7A2 /* AppDelegate.swift in Sources */,
 				62A8C7A825885C6D00F0D7A2 /* SceneDelegate.swift in Sources */,
+				62A8C7C42588627D00F0D7A2 /* CharacterController.swift in Sources */,
+				62A8C7CA258864D300F0D7A2 /* CardCollectionViewController.swift in Sources */,
+				62A8C7BF258861C400F0D7A2 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +332,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8C27D6HU3;
-				INFOPLIST_FILE = CardGame/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CardGame/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +351,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H8C27D6HU3;
-				INFOPLIST_FILE = CardGame/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CardGame/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
