@@ -11,23 +11,31 @@ class CardCollectionViewController: UICollectionViewController {
     
     private var displayedCharacters: [Character] = []
     private var targetCharacter: Character?
+    private var selectedFaction = "jedi"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        shuffleCharacters()
-        
+        shuffleCharacters(for: selectedFaction)
     }
     
-    func shuffleCharacters() {
-        CharacterController.characters.shuffle()
-        let charactersToShow = CharacterController.characters.prefix(4)
-        displayedCharacters = Array(charactersToShow)
-        targetCharacter = displayedCharacters.randomElement()
+    func shuffleCharacters(for faction: String) {
+        if faction == "sith" {
+            let sithGroup = CharacterController.sith.prefix(3)
+            targetCharacter = CharacterController.jedi.randomElement()
+            displayedCharacters = Array(sithGroup)
+        } else if faction == "jedi" {
+            let jediGroup = CharacterController.jedi.prefix(3)
+            targetCharacter = CharacterController.sith.randomElement()
+            displayedCharacters = Array(jediGroup)
+        }
+        
         updateViews()
     }
     
     private func updateViews() {
         guard let target = targetCharacter else { return }
+        displayedCharacters.append(target)
+        displayedCharacters.shuffle()
         title = "Find \(target.name)"
         collectionView.reloadData()
     }
@@ -57,7 +65,7 @@ class CardCollectionViewController: UICollectionViewController {
         let alertController = UIAlertController(title: success ? "Good Job!" : "Better luck next time", message: nil, preferredStyle: .alert)
         let doneAction = UIAlertAction(title: "Done", style: .cancel)
         let shuffleAction = UIAlertAction(title: "Suffle!", style: .default) { _ in
-            self.shuffleCharacters()
+            self.shuffleCharacters(for: self.selectedFaction)
         }
         
         alertController.addAction(doneAction)
@@ -68,11 +76,25 @@ class CardCollectionViewController: UICollectionViewController {
         
         present(alertController, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FilterVC" {
+            let vc = segue.destination as? FilterViewController
+            vc?.delegate = self
+        }
+    }
 }
 
 extension CardCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width / 2
         return CGSize(width: width - 15, height: width + 30)
+    }
+}
+
+extension CardCollectionViewController: FilterSelectionDelegate {
+    func selected(faction: String) {
+        selectedFaction = faction
+        shuffleCharacters(for: faction)
     }
 }
