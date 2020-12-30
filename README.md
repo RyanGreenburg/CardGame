@@ -65,3 +65,9 @@ Running the app at this point will display four characters. However, the sizing 
   - Implement the `sizeForItemAt` method
   - Size the cells however you see fit. 
   
+Running the app now will display the character cell properly. We still can't play the game without implementing the `didSelectItemAt` to let us know if we selected the correct target.
+  - In `didSelectItemAt`, subscritpt into the `displayedCharacters` to grab the selected character at the selected IndexPath
+  - Now create the `presentAlert(for character:)` method
+    - Be sure to outline initializing the UIAlertController, initializing the UIAlertActions, and adding the alert actions to the UIAlertController. 
+  
+### Views: FilterViewController
