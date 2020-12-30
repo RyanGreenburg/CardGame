@@ -45,3 +45,23 @@ CollectionViewDataSource
   - For `numberOfItemsInSection` we will use `displayedCharacters.count` 
   - For `cellForItemAt` we will need to crete a custom collectionViewCell
   
+### Views: CollectionViewCell
+In the `Main.storyboard`, add a prototype cell to the CollectionView of the `CharacterCollectionViewController` there isn't one already.
+  - Add An image to the cell, and constrain it to 0 to the top, leading, bottom, and trailing edges
+
+Create a CocoTouchClass file, subclass UICollectionViewCell, and title the file CharacterCollectionViewCell. Delete all the starting code in the file. 
+  - Give the cell a reuseIdentifier
+  - Create the needed outlet for the UIImageView
+  - Create the helper function `displayImage(for character:)` to take the given character and set the image on the cell. 
+  
+### Views: CollectionViewController Part 2
+Add the needed code to populate the `cellForItemAt` method
+  - Dequeue a reusable collectionViewCell as the `CharacterCollectionViewCell`
+  - Subscript into the array of characters, `displayedCharacters[indexPath.row]`, to get the character for a given cell
+  - Call `cell.displayImage(for:)` and pass in the character
+  - Return the cell
+  
+Running the app at this point will display four characters. However, the sizing of the cells will be off. Time to fix that by extending the `CharacterCollectionViewController` and adopting the `UICollectionViewDelegateFlowLayout` protocol. 
+  - Implement the `sizeForItemAt` method
+  - Size the cells however you see fit. 
+  
