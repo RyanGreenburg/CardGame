@@ -71,3 +71,25 @@ Running the app now will display the character cell properly. We still can't pla
     - Be sure to outline initializing the UIAlertController, initializing the UIAlertActions, and adding the alert actions to the UIAlertController. 
   
 ### Views: FilterViewController
+We are now to the point where we can implement the filter to select what faction we are setting for the game. 
+  - Navigate to `Main.storyboard` and add a new ViewController to the canvas. 
+  - Drag a segue from the filter bar button item to the new ViewController
+    - The Segue should be a modal presentation segue
+    - Set the segue identifier 
+  - Create the button stack view for the factions using the "sith" and 'jedi" image assets
+  - Create a new CocoaTouch file, subclass `UIViewController`, name the file `FilterViewController`
+  - Open the assistant editor and create the actions for the buttons.
+  
+We now need a way to inform the `CharacterCollectionViewController` of when a selection has been made on the `FilterViewController`. Time to create a custom protocol/delegate pattern.
+  - Create the `FilterSelectionDelegate` protocol with the `selected(faction:)` method
+  - Add the `delegate` property on the `FilterViewController`
+  - Implement the delegate method in both actions, passing the respective faction string value, and call `dismiss` in each action
+  
+### Views: CollectionViewController Part 3
+We need to now set the `CharacterCollectionViewController` as the delegate for the `FilterViewController`
+  - Extend the `CharacterCollectionViewController` and adopt the `FilterSelectionDelegate` protocol, plug in the stubs
+    - In the `selected(faction:)` method body, set the `selectedFaction` property to the faction parameter
+    - Call `shuffleCharacters(for:)` and pass the faction parameter as the needed string argument
+  - Now, assign the delegate using the `prepare(for segue:)` method.
+  
+At this point the project should run as expected.
